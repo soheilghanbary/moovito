@@ -109,7 +109,7 @@ export function SiteNav() {
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              My Favorite List
+              Favorite List
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

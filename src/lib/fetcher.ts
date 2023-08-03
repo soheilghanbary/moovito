@@ -36,6 +36,13 @@ export async function getMovieSearchDataByPage(page: number, query: string) {
   return res.json()
 }
 
+export async function getSearchMovie(query: string) {
+  const res = await fetch(
+    `${base_url}/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${query}`
+  )
+  return res.json()
+}
+
 export async function getMovieDataById(id: number) {
   const res = await fetch(
     `${base_url}/movie/${id}?api_key=${process.env.MOVIE_API_KEY}`,

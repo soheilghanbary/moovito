@@ -19,7 +19,10 @@ export const BlurImage: FC<Props> = ({ image, alt, className }) => {
 
   return (
     <div
-      className={cn("group relative overflow-hidden cursor-pointer", className)}
+      className={cn(
+        "group relative overflow-hidden cursor-pointer bg-secondary/60",
+        className
+      )}
     >
       <Image
         fill
