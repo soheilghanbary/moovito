@@ -128,12 +128,7 @@ export async function getTopRatedMovies() {
 
 export async function getNowPlayingMovies() {
   const res = await fetch(
-    `${base_url}/movie/now_playing?api_key=${process.env.MOVIE_API_KEY}`,
-    { next: { revalidate: 3600 } }
+    `${base_url}/movie/now_playing?api_key=${process.env.MOVIE_API_KEY}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
-
   return res.json()
 }
