@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "Postino",
-  description: "Lens and Pen: Your User Blogging Corne",
+  name: "Moovito",
+  description: "moovito: your one-stop destination for all things movies.",
   links: {
     twitter: "https://twitter.com/soli_ghanbary",
     github: "https://github.com/soheilghanbary",

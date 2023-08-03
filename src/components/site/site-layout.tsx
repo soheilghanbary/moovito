@@ -4,6 +4,8 @@ import { ClapperboardIcon, MenuIcon, SearchIcon } from "lucide-react"
 
 import { ThemeToggle } from "../theme-toggle"
 import { Button } from "../ui/button"
+import { MobileMenu } from "./menu-button"
+import { MobileNav } from "./mobile-nav"
 import { SiteFooter } from "./site-footer"
 import { SiteNav } from "./site-nav"
 
@@ -13,6 +15,7 @@ export function SiteLayout({ children }: PropsWithChildren) {
       <SiteHeader />
       <main className="container mx-auto my-2">{children}</main>
       <SiteFooter />
+      <MobileNav />
     </>
   )
 }
@@ -20,7 +23,7 @@ export function SiteLayout({ children }: PropsWithChildren) {
 const SiteHeader = () => (
   <header className="sticky top-0 z-50 border-b bg-background">
     <nav className="container mx-auto flex items-center justify-between py-4">
-      <SiteMenu />
+      <MobileMenu />
       <Logo />
       <div className="hidden flex-1 md:block">
         <SiteNav />
@@ -33,13 +36,7 @@ const SiteHeader = () => (
   </header>
 )
 
-const SiteMenu = () => (
-  <Button variant={"ghost"} size={"icon"} className="mr-2 md:hidden">
-    <MenuIcon className="h-4 w-4" />
-  </Button>
-)
-
-const Logo = () => (
+export const Logo = () => (
   <Link href={"/"} className="mr-8 flex flex-1 items-center md:grow-0">
     <ClapperboardIcon className="mr-3 h-5 w-5 text-teal-500" />
     <h3 className="font-semibold">Moovito</h3>

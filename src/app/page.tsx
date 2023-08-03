@@ -1,4 +1,5 @@
 import { Movie } from "@/types"
+import Balancer from "react-wrap-balancer"
 
 import {
   getNowPlayingMovies,
@@ -21,22 +22,22 @@ export default async function MoviePage() {
   const popMovies = (await getPopularMovies()) as MoviesProps
   return (
     <>
-      <div className="flex items-center">
-        <div className="w-1/3">
+      <div className="mb-4 items-center md:flex">
+        <div className="md:w-1/3">
           <MovieLottie />
         </div>
-        <div className="w-2/3 flex-1 space-y-4">
-          <h1 className="text-5xl font-black">
+        <div className="flex-1 space-y-4 md:w-2/3">
+          <Balancer
+            ratio={0}
+            className="text-center text-3xl font-black md:text-5xl"
+          >
             Your Ultimate Movie Search App
-          </h1>
+          </Balancer>
           <p className="text-sm leading-6 text-muted-foreground">
             <span className="font-semibold text-foreground">Moovito</span> is
             your one-stop destination for all things movies. the latest
             blockbusters, timeless classics, or hidden gems, our powerful movie
             search app ensures you find the perfect film for every mood.
-            Discover comprehensive movie details, watch trailers, read reviews,
-            and create personalized watchlists. With MoovieMatic, the magic of
-            cinema is just a tap away!
           </p>
           <SearchBox />
         </div>
