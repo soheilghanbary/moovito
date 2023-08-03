@@ -17,9 +17,6 @@ export async function getMovieDataByParams(page: number, genre?: string) {
   const res = await fetch(
     `${base_url}/discover/movie?api_key=${process.env.MOVIE_API_KEY}&page=${page}&with_genres=${genre}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
@@ -29,9 +26,6 @@ export async function getMovieSearchDataByPage(page: number, query: string) {
   const res = await fetch(
     `${base_url}/search/movie?api_key=${process.env.MOVIE_API_KEY}&page=${page}&query=${query}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
@@ -45,36 +39,24 @@ export async function getSearchMovie(query: string) {
 
 export async function getMovieDataById(id: number) {
   const res = await fetch(
-    `${base_url}/movie/${id}?api_key=${process.env.MOVIE_API_KEY}`,
-    { next: { revalidate: 3600 } }
+    `${base_url}/movie/${id}?api_key=${process.env.MOVIE_API_KEY}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
 
 export async function getAllMovieDataById(id: number) {
   const res = await fetch(
-    `${base_url}/movie/${id}?api_key=${process.env.MOVIE_API_KEY}&append_to_response=videos,credits`,
-    { next: { revalidate: 3600 } }
+    `${base_url}/movie/${id}?api_key=${process.env.MOVIE_API_KEY}&append_to_response=videos,credits`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
 
 export async function getMovieVideosById(id: number) {
   const res = await fetch(
-    `${base_url}/movie/${id}/videos?api_key=${process.env.MOVIE_API_KEY}`,
-    { next: { revalidate: 3600 } }
+    `${base_url}/movie/${id}/videos?api_key=${process.env.MOVIE_API_KEY}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
@@ -83,45 +65,30 @@ export async function getMovieCastById(id: number) {
   const res = await fetch(
     `${base_url}/movie/${id}/credits?api_key=${process.env.MOVIE_API_KEY}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
 
 export async function getPopularMovies() {
   const res = await fetch(
-    `${base_url}/movie/popular?api_key=${process.env.MOVIE_API_KEY}`,
-    { next: { revalidate: 3600 } }
+    `${base_url}/movie/popular?api_key=${process.env.MOVIE_API_KEY}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
 
 export async function getUpcomingMovies() {
   const res = await fetch(
-    `${base_url}/movie/upcoming?api_key=${process.env.MOVIE_API_KEY}`,
-    { next: { revalidate: 3600 } }
+    `${base_url}/movie/upcoming?api_key=${process.env.MOVIE_API_KEY}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
 
 export async function getTopRatedMovies() {
   const res = await fetch(
-    `${base_url}/movie/top_rated?api_key=${process.env.MOVIE_API_KEY}`,
-    { next: { revalidate: 3600 } }
+    `${base_url}/movie/top_rated?api_key=${process.env.MOVIE_API_KEY}`
   )
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
   return res.json()
 }
