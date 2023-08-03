@@ -9,6 +9,7 @@ const nextConfig = {
       "uploadthing.com",
       "avatars.githubusercontent.com",
       "blog.logrocket.com",
+      "image.tmdb.org",
     ],
   },
   experimental: {
