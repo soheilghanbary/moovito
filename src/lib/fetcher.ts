@@ -1,7 +1,17 @@
 const base_url = "https://api.themoviedb.org/3"
-export async function getData() {
+
+// get all people movies credits
+export async function getCastMoviesById(castId: number) {
   const res = await fetch(
-    `${base_url}/discover/movie?api_key=${process.env.MOVIE_API_KEY}`
+    `${base_url}/person/${castId}/movie_credits?api_key=${process.env.MOVIE_API_KEY}`
+  )
+  return res.json()
+}
+
+// get people details
+export async function getCastById(castId: number) {
+  const res = await fetch(
+    `${base_url}/person/${castId}?api_key=${process.env.MOVIE_API_KEY}`
   )
   return res.json()
 }

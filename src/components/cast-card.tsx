@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { CastMember } from "@/types"
 
 import { BlurImage } from "./blur-image"
@@ -8,7 +9,10 @@ const baseurl = "https://image.tmdb.org/t/p/w500"
 
 export function CastCard(cast: CastMember) {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <Link
+      href={`/person/${cast.id}`}
+      className="flex flex-col items-center justify-center space-y-2"
+    >
       {cast.profile_path ? (
         <>
           <div className="w-[200px] overflow-hidden rounded">
@@ -29,6 +33,6 @@ export function CastCard(cast: CastMember) {
       <p className="flex flex-wrap text-center text-xs text-muted-foreground">
         {cast.character}
       </p>
-    </div>
+    </Link>
   )
 }

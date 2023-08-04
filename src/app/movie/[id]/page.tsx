@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import { Movie } from "@/types"
 import { Player } from "@lottiefiles/react-lottie-player"
 
@@ -7,6 +8,21 @@ import { BlurImage } from "@/components/blur-image"
 import { CastCard } from "@/components/cast-card"
 import { Icons } from "@/components/icons"
 import YouTubePlayer from "@/components/youtube-player"
+
+const baseurl = "https://image.tmdb.org/t/p/w500/"
+
+export async function generateMetadata({ params }: { params: { id: number } }) {
+  const movieData: Movie = await getAllMovieDataById(params.id)
+  return {
+    title: movieData.title,
+    openGraph: {
+      title: movieData.title,
+      images: [`${baseurl}${movieData.poster_path}`],
+      description: movieData.overview,
+      siteName: "Moovito",
+    },
+  }
+}
 
 export default async function MoviePage({
   params,
