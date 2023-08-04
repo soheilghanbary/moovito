@@ -22,9 +22,9 @@ export default async function MoviePage({
 
   return (
     <>
-      <div className="mx-auto my-32 flex max-w-screen-lg gap-8">
+      <div className="mx-auto flex max-w-screen-lg flex-col gap-8 md:my-32 md:flex-row">
         <BlurImage
-          className="h-[28rem] w-80 rounded-lg"
+          className="md:h-[28rem] h-[38rem] md:w-80 w-full rounded-lg"
           image={`https://image.tmdb.org/t/p/w500${movie.poster_path!}`}
           alt={movie.title}
         />
@@ -67,22 +67,18 @@ export default async function MoviePage({
         </div>
       </div>
       {trailerVideo?.key && (
-        <>
-          <h2 className="border-b pb-4 text-4xl font-bold">Trailer</h2>
-          <div className="px-4">
-            <YouTubePlayer id={trailerVideo.key} />
+        <section className="mt-8 space-y-4">
+          <h2 className="border-b pb-2 text-2xl font-bold md:text-4xl">
+            Trailer
+          </h2>
+          <YouTubePlayer id={trailerVideo.key} />
+          <h2 className="border-b pb-2 text-2xl font-bold md:text-4xl">
+            Casts
+          </h2>
+          <div className="flex flex-wrap md:justify-between justify-evenly gap-4">
+            {castList?.map((cast, index) => <CastCard {...cast} key={index} />)}
           </div>
-          <section className="mt-4">
-            <h2 className="my-2 scroll-m-20 border-b py-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-              Cast
-            </h2>
-            <div className="flex flex-wrap justify-evenly gap-2">
-              {castList?.map((cast, index) => (
-                <CastCard {...cast} key={index} />
-              ))}
-            </div>
-          </section>
-        </>
+        </section>
       )}
     </>
   )
