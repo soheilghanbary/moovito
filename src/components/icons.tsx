@@ -20,6 +20,7 @@ import {
   ChevronsUpDown,
   ChevronUp,
   Circle,
+  Clock,
   Command,
   Copy,
   CreditCard,
@@ -84,6 +85,7 @@ export type Icon = LucideIcon
 export const Icons = {
   sun: SunMedium,
   moon: Moon,
+  clock: Clock,
   star: Star,
   building: Building,
   cake: Cake,

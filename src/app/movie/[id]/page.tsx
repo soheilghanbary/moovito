@@ -1,6 +1,4 @@
-import { Metadata } from "next"
 import { Movie } from "@/types"
-import { Player } from "@lottiefiles/react-lottie-player"
 
 import { getAllMovieDataById } from "@/lib/fetcher"
 import { Button } from "@/components/ui/button"
@@ -10,6 +8,11 @@ import { Icons } from "@/components/icons"
 import YouTubePlayer from "@/components/youtube-player"
 
 const baseurl = "https://image.tmdb.org/t/p/w500/"
+const convertToHoursAndMinutes = (minutes: any) => {
+  const hours = Math.floor(minutes / 60)
+  const remainingMinutes = minutes % 60
+  return { hours, minutes: remainingMinutes }
+}
 
 export async function generateMetadata({ params }: { params: { id: number } }) {
   const movieData: Movie = await getAllMovieDataById(params.id)
@@ -36,6 +39,8 @@ export default async function MoviePage({
   )
   const castList = movie.credits?.cast.slice(0, 12)
 
+  const { hours, minutes } = convertToHoursAndMinutes(movie.runtime)
+
   return (
     <>
       <div className="mx-auto flex max-w-screen-lg flex-col gap-8 md:my-32 md:flex-row">
@@ -51,6 +56,12 @@ export default async function MoviePage({
             <Icons.date className="mr-2 h-4 w-4" /> Release Date:
             <span className="pl-2 font-normal text-muted-foreground">
               {movie.release_date}
+            </span>
+          </p>
+          <p className="flex items-center text-sm font-medium text-foreground">
+            <Icons.clock className="mr-2 h-4 w-4" /> Runtime:
+            <span className="pl-2 font-normal text-muted-foreground">
+              {`${hours}h ${minutes}m`}
             </span>
           </p>
           <p className="flex items-center text-sm font-medium text-foreground">
