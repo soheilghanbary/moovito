@@ -2,8 +2,10 @@ import { PropsWithChildren } from "react"
 import Link from "next/link"
 import { ClapperboardIcon, MenuIcon, SearchIcon } from "lucide-react"
 
+import { SearchBox } from "../search-box"
 import { ThemeToggle } from "../theme-toggle"
 import { Button } from "../ui/button"
+import { Input } from "../ui/input"
 import { MobileMenu } from "./menu-button"
 import { MobileNav } from "./mobile-nav"
 import { SiteFooter } from "./site-footer"
@@ -41,14 +43,4 @@ export const Logo = () => (
     <ClapperboardIcon className="mr-3 h-5 w-5 text-teal-500" />
     <h3 className="font-semibold">Moovito</h3>
   </Link>
-)
-
-const SearchBox = () => (
-  <Button
-    variant={"outline"}
-    className="flex w-52 justify-start gap-2 text-muted-foreground"
-  >
-    <SearchIcon className="h-4 w-4" />
-    Search Movie Name
-  </Button>
 )

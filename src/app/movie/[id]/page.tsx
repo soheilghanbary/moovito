@@ -24,7 +24,7 @@ export default async function MoviePage({
     <>
       <div className="mx-auto flex max-w-screen-lg flex-col gap-8 md:my-32 md:flex-row">
         <BlurImage
-          className="md:h-[28rem] h-[38rem] md:w-80 w-full rounded-lg"
+          className="h-[38rem] w-full rounded-lg md:h-[28rem] md:w-80"
           image={`https://image.tmdb.org/t/p/w500${movie.poster_path!}`}
           alt={movie.title}
         />
@@ -75,7 +75,7 @@ export default async function MoviePage({
           <h2 className="border-b pb-2 text-2xl font-bold md:text-4xl">
             Casts
           </h2>
-          <div className="flex flex-wrap md:justify-between justify-evenly gap-4">
+          <div className="flex flex-wrap justify-evenly gap-4 md:justify-between">
             {castList?.map((cast, index) => <CastCard {...cast} key={index} />)}
           </div>
         </section>
