@@ -127,3 +127,9 @@ interface Person {
   popularity: number
   profile_path: string | null
 }
+
+interface PageProps {
+  params: {
+    id: number
+  }
+}

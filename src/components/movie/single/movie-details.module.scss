@@ -1,0 +1,27 @@
+.container {
+  @apply mx-auto flex max-w-screen-lg flex-col gap-8 md:my-32 md:flex-row;
+}
+
+.title {
+  @apply text-4xl font-black text-foreground;
+}
+
+.cover {
+  @apply h-[38rem] w-full rounded-lg md:h-[28rem] md:w-80;
+}
+
+.overview {
+  @apply leading-7;
+}
+
+.detail {
+  @apply flex items-center text-sm font-medium text-foreground;
+
+  svg {
+    @apply mr-2 h-5 w-5;
+  }
+
+  span {
+    @apply pl-2 font-normal text-muted-foreground;
+  }
+}
