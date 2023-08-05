@@ -1,4 +1,5 @@
 import "@/styles/globals.css"
+import "react-circular-progressbar/dist/styles.css"
 
 import type { Metadata } from "next"
 import { inter } from "@/assets/fonts/font"

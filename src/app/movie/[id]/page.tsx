@@ -2,6 +2,7 @@ import { Movie, PageProps } from "@/types"
 
 import { getAllMovieDataById } from "@/lib/fetcher"
 import { baseImageURL } from "@/lib/utils"
+import { Container } from "@/components/container"
 import { MovieCast } from "@/components/movie/single/movie-cast"
 import { MovieDetails } from "@/components/movie/single/movie-details"
 import { MovieTrailer } from "@/components/movie/single/movie-trailer"

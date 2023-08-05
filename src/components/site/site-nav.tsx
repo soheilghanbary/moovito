@@ -2,7 +2,9 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { MoviesResponse } from "@/types"
 
+import { getMovieDataByParams } from "@/lib/fetcher"
 import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
@@ -15,93 +17,118 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Icons } from "@/components/icons"
 
-const components: { title: string; href: string; description: string }[] = [
+const components: {
+  title: string
+  id: any
+}[] = [
   {
+    id: "all",
+    title: "All",
+  },
+  {
+    id: 28,
     title: "Action",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    id: 12,
+    title: "Adventure",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    id: 16,
+    title: "Animation",
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    id: 35,
+    title: "Comedy",
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    id: 80,
+    title: "Crime",
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    id: 99,
+    title: "Documentary",
+  },
+  {
+    id: 18,
+    title: "Drama",
+  },
+  {
+    id: 10751,
+    title: "Family",
+  },
+  {
+    id: 14,
+    title: "Fantasy",
+  },
+  {
+    id: 36,
+    title: "History",
+  },
+  {
+    id: 27,
+    title: "Horror",
+  },
+  {
+    id: 10402,
+    title: "Music",
+  },
+  {
+    id: 9648,
+    title: "Mystery",
+  },
+  {
+    id: 10749,
+    title: "Romance",
+  },
+  {
+    id: 878,
+    title: "Science Fiction",
+  },
+  {
+    id: 10770,
+    title: "TV Movie",
+  },
+  {
+    id: 53,
+    title: "Thriller",
+  },
+  {
+    id: 10752,
+    title: "War",
+  },
+  {
+    id: 37,
+    title: "Western",
   },
 ]
 
 export function SiteNav() {
+  const navs = components.map((genre) => ({
+    ...genre,
+    href: `/movie?genre=${genre.id}`,
+  }))
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    <Icons.logo className="h-6 w-6" />
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
+          <Link href="/movie" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Movies
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Geners</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
+            <ul className="grid w-[320px] gap-3 p-4 md:w-[320px] md:grid-cols-2">
+              {navs.map((component) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
                   href={component.href}
-                >
-                  {component.description}
-                </ListItem>
+                />
               ))}
             </ul>
           </NavigationMenuContent>

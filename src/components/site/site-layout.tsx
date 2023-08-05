@@ -15,12 +15,16 @@ export function SiteLayout({ children }: PropsWithChildren) {
   return (
     <>
       <SiteHeader />
-      <main className="container mx-auto my-2">{children}</main>
+      <Main>{children}</Main>
       <SiteFooter />
       <MobileNav />
     </>
   )
 }
+
+const Main = ({ children }: PropsWithChildren) => (
+  <main className="container mx-auto my-4">{children}</main>
+)
 
 const SiteHeader = () => (
   <header className="sticky top-0 z-50 border-b bg-background">

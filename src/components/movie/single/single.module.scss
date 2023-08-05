@@ -1,5 +1,5 @@
 .container {
-  @apply mx-auto flex max-w-screen-lg flex-col gap-8 md:my-32 md:flex-row;
+  @apply mx-auto flex max-w-screen-lg flex-col gap-8 md:my-24 md:flex-row;
 }
 
 .title {
@@ -7,22 +7,18 @@
 }
 
 .cover {
-  @apply h-[38rem] w-full rounded-lg md:h-[28rem] md:w-80;
+  @apply h-[30rem] w-3/4 mx-auto rounded-lg md:h-[28rem] md:w-80;
 }
 
 .overview {
-  @apply leading-7;
+  @apply leading-7 text-foreground;
 }
 
 .detail {
-  @apply flex items-center text-sm font-medium text-foreground;
+  @apply flex items-center text-sm font-medium text-foreground text-muted-foreground;
 
   svg {
-    @apply mr-2 h-5 w-5;
-  }
-
-  span {
-    @apply pl-2 font-normal text-muted-foreground;
+    @apply mr-2 h-5 w-5 text-foreground;
   }
 }
 
@@ -47,5 +43,13 @@
 
   svg {
     @apply aspect-[2/3] h-2/3 w-2/3 rounded-xl object-cover text-muted-foreground/50 transition-all;
+  }
+}
+
+.genres {
+  @apply flex flex-wrap gap-2;
+
+  span {
+    @apply rounded-full bg-secondary cursor-pointer px-4 py-2 text-sm text-foreground;
   }
 }

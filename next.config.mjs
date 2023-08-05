@@ -1,6 +1,9 @@
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  env: {
+    PUBLIC_URL: process.env.PUBLIC_URL,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
