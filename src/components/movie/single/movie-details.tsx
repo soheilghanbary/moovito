@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { BlurImage } from "@/components/blur-image"
 import { Icons } from "@/components/icons"
 
-import styles from "./movie-details.module.scss"
+import styles from "./single.module.scss"
 
 export function MovieDetails(movie: Movie) {
   const { hours, minutes } = getClock(movie.runtime)

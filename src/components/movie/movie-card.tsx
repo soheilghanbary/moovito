@@ -7,7 +7,7 @@ import { BlurImage } from "../blur-image"
 export const MovieCard = ({ id, title, poster_path, vote_count }: Movie) => (
   <Link href={`/movie/${id}`} className="space-y-2">
     <BlurImage
-      className="md:h-80 md:w-52 w-44 h-64 rounded-lg"
+      className="h-64 w-44 rounded-lg md:h-80 md:w-52"
       image={`https://image.tmdb.org/t/p/w500${poster_path}`}
       alt=""
     />

@@ -15,9 +15,7 @@ export function MovieList({
       <hr className="my-4" />
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {movies.map((movie) => (
-          <div className="snap-start">
-            <MovieCard key={movie.id} {...movie} />
-          </div>
+          <MovieCard key={movie.id} {...movie} />
         ))}
       </div>
     </section>

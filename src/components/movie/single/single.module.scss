@@ -1,0 +1,51 @@
+.container {
+  @apply mx-auto flex max-w-screen-lg flex-col gap-8 md:my-32 md:flex-row;
+}
+
+.title {
+  @apply text-4xl font-black text-foreground;
+}
+
+.cover {
+  @apply h-[38rem] w-full rounded-lg md:h-[28rem] md:w-80;
+}
+
+.overview {
+  @apply leading-7;
+}
+
+.detail {
+  @apply flex items-center text-sm font-medium text-foreground;
+
+  svg {
+    @apply mr-2 h-5 w-5;
+  }
+
+  span {
+    @apply pl-2 font-normal text-muted-foreground;
+  }
+}
+
+.cast {
+  @apply flex flex-col items-center justify-center space-y-2;
+
+  h6 {
+    @apply font-semibold;
+  }
+
+  p {
+    @apply flex flex-wrap text-center text-xs text-muted-foreground;
+  }
+}
+
+.cast-profile {
+  @apply aspect-[2/3] h-auto w-52 rounded-xl object-cover transition-all;
+}
+
+.cast-placeholder {
+  @apply flex w-52 items-center justify-center overflow-hidden rounded;
+
+  svg {
+    @apply aspect-[2/3] h-2/3 w-2/3 rounded-xl object-cover text-muted-foreground/50 transition-all;
+  }
+}
