@@ -7,8 +7,8 @@ import {
   getTopRatedMovies,
   getUpcomingMovies,
 } from "@/lib/fetcher"
-import { MovieLottie } from "@/components/movie-lottie"
-import { MovieSlider } from "@/components/movie-slider"
+import { MovieLottie } from "@/components/movie/movie-lottie"
+import { MovieSlider } from "@/components/movie/movie-slider"
 import { SearchBox } from "@/components/search-box"
 
 interface MoviesProps {

@@ -2,12 +2,12 @@ import Link from "next/link"
 import { Movie } from "@/types"
 import { ZapIcon } from "lucide-react"
 
-import { BlurImage } from "./blur-image"
+import { BlurImage } from "../blur-image"
 
 export const MovieCard = ({ id, title, poster_path, vote_count }: Movie) => (
   <Link href={`/movie/${id}`} className="space-y-2">
     <BlurImage
-      className="h-80 w-52 rounded-lg"
+      className="md:h-80 md:w-52 w-44 h-64 rounded-lg"
       image={`https://image.tmdb.org/t/p/w500${poster_path}`}
       alt=""
     />

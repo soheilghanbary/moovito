@@ -1,7 +1,7 @@
 import { MoviesResponse } from "@/types"
 
 import { getSearchMovie } from "@/lib/fetcher"
-import { MovieList } from "@/components/movie-list"
+import { MovieList } from "@/components/movie/movie-list"
 
 export default async function SearchPage({ searchParams }: any) {
   const allShows: MoviesResponse = await getSearchMovie(searchParams.keywords)
