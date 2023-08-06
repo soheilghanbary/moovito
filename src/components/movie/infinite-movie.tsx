@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer"
 import { useMovies } from "@/hooks/use-movie"
 
 import { MovieCard } from "./movie-card"
+import styles from "./movie.module.scss"
 
 export const InfiniteMovie = () => {
   const {
@@ -26,15 +27,15 @@ export const InfiniteMovie = () => {
 
   if (isLoading) return <p>loading movies</p>
   return (
-    <div>
+    <section className="@container">
       {data?.pages.map((p) => (
-        <div className="grid grid-cols-5 gap-4">
+        <div key={p.results.length} className={styles["movie-list"]}>
           {p.results.map((m) => (
-            <MovieCard {...m} />
+            <MovieCard key={m.id} {...m} />
           ))}
         </div>
       ))}
       <div ref={ref} />
-    </div>
+    </section>
   )
 }

@@ -20,7 +20,7 @@ export const BlurImage: FC<Props> = ({ image, alt, className }) => {
   return (
     <div
       className={cn(
-        "group relative overflow-hidden cursor-pointer bg-secondary/60",
+        "group relative cursor-pointer overflow-hidden bg-secondary/60",
         className
       )}
     >
@@ -29,7 +29,6 @@ export const BlurImage: FC<Props> = ({ image, alt, className }) => {
         alt={alt}
         src={image}
         loading="lazy"
-        priority
         className={cn(
           "h-full w-full rounded-[inherit] object-cover shadow transition duration-300 group-hover:scale-110",
           isReady ? "blur-0" : "blur-lg"
