@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer"
 
 import { useMovies } from "@/hooks/use-movie"
 
+import { InfiniteMovieLoader } from "./infinite-movie-loader"
 import { MovieCard } from "./movie-card"
 import styles from "./movie.module.scss"
 
@@ -27,7 +28,7 @@ export const InfiniteMovie = ({ genre = "fdsfds" }) => {
     }
   }, [inView, fetchNextPage, hasNextPage])
 
-  if (isLoading) return <p>loading movies</p>
+  if (isLoading) return <InfiniteMovieLoader />
   return (
     <>
       {data?.pages.map((p) => (

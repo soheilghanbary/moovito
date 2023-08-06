@@ -15,12 +15,15 @@ export function MovieSlider({
   const [sliderRef] = useKeenSlider({
     breakpoints: {
       "(min-width: 640px)": {
-        slides: { perView: 4 },
+        slides: { perView: 4, spacing: 20 },
       },
       "(min-width: 768px)": {
+        slides: { perView: 4, spacing: 10 },
+      },
+      "(min-width: 1200px)": {
         slides: { perView: 5 },
       },
-      "(min-width: 1280px)": {
+      "(min-width: 1400px)": {
         slides: { perView: 6 },
       },
     },
