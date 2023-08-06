@@ -47,7 +47,7 @@ export default async function MoviePage() {
             href={"/movie"}
             className={buttonVariants({ variant: "default" })}
           >
-            Browse Movie
+            Browse Movies
           </Link>
         </div>
       </div>

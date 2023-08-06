@@ -1,4 +1,7 @@
+"use client"
+
 import { Movie } from "@/types"
+import { useKeenSlider } from "keen-slider/react"
 
 import { MovieCard } from "./movie-card"
 
@@ -9,13 +12,20 @@ export function MovieSlider({
   movies: Movie[]
   title: string
 }) {
+  const [sliderRef] = useKeenSlider({
+    slides: {
+      perView: 6,
+      spacing: 15,
+    },
+  })
+
   return (
     <section>
       <h2 className="text-3xl font-black">{title}</h2>
       <hr className="my-4" />
-      <div className="flex snap-x snap-mandatory space-x-8 overflow-x-scroll pb-8">
+      <div ref={sliderRef} className="keen-slider">
         {movies.map((movie) => (
-          <div className="snap-start">
+          <div className="keen-slider__slide">
             <MovieCard key={movie.id} {...movie} />
           </div>
         ))}
