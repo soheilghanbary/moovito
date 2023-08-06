@@ -1,7 +1,7 @@
 .movie-list {
   @apply 
     grid gap-4 mt-4
-    xl:grid-cols-5
+    xl:grid-cols-6
     lg:grid-cols-5
     md:grid-cols-4
     sm:grid-cols-3
@@ -11,8 +11,8 @@
 
 .movie-loader {
   @apply 
-    grid gap-4
-    xl:grid-cols-5
+    grid gap-4 mt-4
+    xl:grid-cols-6
     lg:grid-cols-5
     md:grid-cols-4
     sm:grid-cols-3
@@ -38,7 +38,7 @@
 
 .movie-poster {
   @apply
-    w-full rounded-xl shadow md:w-48
+    w-full rounded-xl shadow md:w-48 xl:w-48 lg:w-40
     xl:h-80
     lg:h-96
     md:h-72

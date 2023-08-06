@@ -16,9 +16,14 @@ export async function getCastById(castId: number) {
   return res.json()
 }
 
-export async function getMovieDataByPage({ pageParam = 1, genre = "" }) {
+export async function getMovieDataByPage({
+  pageParam = 1,
+  genre = "",
+  min_year = "",
+  max_year = "",
+}) {
   const res = await fetch(
-    `${base_url}/discover/movie?api_key=${process.env.MOVIE_API_KEY}&page=${pageParam}&with_genres=${genre}`
+    `${base_url}/discover/movie?api_key=${process.env.MOVIE_API_KEY}&page=${pageParam}&with_genres=${genre}&primary_release_date.gte=${min_year}&primary_release_date.lte=${max_year}`
   )
   return res.json()
 }
