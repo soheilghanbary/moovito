@@ -14,6 +14,7 @@ export function SearchBox() {
     if (!queryRef.current?.value.length) return
     const query = queryRef.current.value
     router.push(`/search?keywords=${query}`)
+    queryRef.current.blur()
     return formRef.current?.reset()
   }
 

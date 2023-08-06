@@ -1,8 +1,6 @@
 .movie-list {
-  @apply grid gap-4;
-
-  // for containers
   @apply 
+    grid gap-4
     xl:grid-cols-6
     lg:grid-cols-5
     md:grid-cols-4
@@ -29,9 +27,11 @@
 
 .movie-poster {
   @apply
-    w-full rounded-xl shadow min-w-[200px]
+    w-full rounded-xl shadow
     xl:h-80
     lg:h-96
-    h-80
+    md:h-72
+    sm:h-80
+    h-64
   ;
 }

@@ -1,3 +1,6 @@
+import Link from "next/link"
+
+import { buttonVariants } from "@/components/ui/button"
 import { InfiniteMovie } from "@/components/movie/infinite-movie"
 
 export default function MoviesPage({

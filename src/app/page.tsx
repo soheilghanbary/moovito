@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Movie } from "@/types"
 import Balancer from "react-wrap-balancer"
 
@@ -7,6 +8,7 @@ import {
   getTopRatedMovies,
   getUpcomingMovies,
 } from "@/lib/fetcher"
+import { buttonVariants } from "@/components/ui/button"
 import { Container } from "@/components/container"
 import { MovieLottie } from "@/components/movie/movie-lottie"
 import { MovieSlider } from "@/components/movie/movie-slider"
@@ -41,6 +43,12 @@ export default async function MoviePage() {
             search app ensures you find the perfect film for every mood.
           </p>
           <SearchBox />
+          <Link
+            href={"/movie"}
+            className={buttonVariants({ variant: "default" })}
+          >
+            Browse Movie
+          </Link>
         </div>
       </div>
       <div className="space-y-8">
