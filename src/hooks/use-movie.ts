@@ -7,10 +7,10 @@ interface InfiniteMovieProps {
   results: Movie[]
 }
 
-export function useMovies() {
+export function useMovies(genre: string) {
   return useInfiniteQuery<InfiniteMovieProps>({
-    queryKey: ["movies"],
-    queryFn: getMovieDataByPage,
+    queryKey: ["movies", genre],
+    queryFn: ({ pageParam }) => getMovieDataByPage({ pageParam, genre }),
     getNextPageParam: (lastPage, pages) => {
       return pages.length + 1
     },

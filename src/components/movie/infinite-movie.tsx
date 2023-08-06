@@ -8,7 +8,7 @@ import { useMovies } from "@/hooks/use-movie"
 import { MovieCard } from "./movie-card"
 import styles from "./movie.module.scss"
 
-export const InfiniteMovie = () => {
+export const InfiniteMovie = ({ genre = "fdsfds" }) => {
   const {
     data,
     isSuccess,
@@ -16,8 +16,10 @@ export const InfiniteMovie = () => {
     hasNextPage,
     isFetchingNextPage,
     fetchNextPage,
-  } = useMovies()
-  const { ref, inView } = useInView()
+  } = useMovies(genre)
+  const { ref, inView } = useInView({
+    rootMargin: "200px",
+  })
 
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -27,7 +29,7 @@ export const InfiniteMovie = () => {
 
   if (isLoading) return <p>loading movies</p>
   return (
-    <section className="@container">
+    <>
       {data?.pages.map((p) => (
         <div key={p.results.length} className={styles["movie-list"]}>
           {p.results.map((m) => (
@@ -36,6 +38,6 @@ export const InfiniteMovie = () => {
         </div>
       ))}
       <div ref={ref} />
-    </section>
+    </>
   )
 }

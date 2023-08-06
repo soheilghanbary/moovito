@@ -3,14 +3,12 @@
 
   // for containers
   @apply 
-  @7xl:grid-cols-6 
-  @5xl:grid-cols-5
-  @4xl:grid-cols-5
-  @3xl:grid-cols-4 
-  @xl:grid-cols-4 
-  @lg:grid-cols-3
-  @md:grid-cols-3
-  grid-cols-2;
+    xl:grid-cols-6
+    lg:grid-cols-5
+    md:grid-cols-4
+    sm:grid-cols-3
+    grid-cols-2
+  ;
 }
 
 .movie-card {
@@ -30,7 +28,10 @@
 }
 
 .movie-poster {
-  @apply 
-    w-full rounded-lg shadow-md
-    @md:h-60 @xl:h-52 @2xl:h-60 @3xl:h-80 @4xl:h-60;
+  @apply
+    w-full rounded-xl shadow min-w-[200px]
+    xl:h-80
+    lg:h-96
+    h-80
+  ;
 }

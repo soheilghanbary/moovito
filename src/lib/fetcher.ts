@@ -16,9 +16,9 @@ export async function getCastById(castId: number) {
   return res.json()
 }
 
-export async function getMovieDataByPage({ pageParam = 1 }) {
+export async function getMovieDataByPage({ pageParam = 1, genre = "" }) {
   const res = await fetch(
-    `${base_url}/discover/movie?api_key=${process.env.MOVIE_API_KEY}&page=${pageParam}`
+    `${base_url}/discover/movie?api_key=${process.env.MOVIE_API_KEY}&page=${pageParam}&with_genres=${genre}`
   )
   return res.json()
 }

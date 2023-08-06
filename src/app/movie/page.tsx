@@ -1,11 +1,13 @@
-"use client"
-
 import { InfiniteMovie } from "@/components/movie/infinite-movie"
 
-export default function MoviesPage() {
+export default function MoviesPage({
+  searchParams,
+}: {
+  searchParams: { genre: string }
+}) {
   return (
     <div>
-      <InfiniteMovie />
+      <InfiniteMovie genre={searchParams.genre} />
     </div>
   )
 }
