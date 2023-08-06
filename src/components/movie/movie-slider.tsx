@@ -13,10 +13,18 @@ export function MovieSlider({
   title: string
 }) {
   const [sliderRef] = useKeenSlider({
-    slides: {
-      perView: 6,
-      spacing: 15,
+    breakpoints: {
+      "(min-width: 640px)": {
+        slides: { perView: 4 },
+      },
+      "(min-width: 768px)": {
+        slides: { perView: 5 },
+      },
+      "(min-width: 1280px)": {
+        slides: { perView: 6 },
+      },
     },
+    slides: { perView: 3, spacing: 10 },
   })
 
   return (
