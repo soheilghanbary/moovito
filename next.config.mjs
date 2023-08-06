@@ -1,8 +1,10 @@
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  optimizeFonts: true,
   env: {
     PUBLIC_URL: process.env.PUBLIC_URL,
+    MOVIE_API_KEY: process.env.MOVIE_API_KEY,
   },
   eslint: {
     ignoreDuringBuilds: true,

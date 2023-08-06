@@ -28,6 +28,7 @@ export const BlurImage: FC<Props> = ({ image, alt, className }) => {
         fill
         alt={alt}
         src={image}
+        loading="lazy"
         priority
         className={cn(
           "h-full w-full rounded-[inherit] object-cover shadow transition duration-300 group-hover:scale-110",

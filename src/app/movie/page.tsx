@@ -1,21 +1,11 @@
-import { MoviesResponse } from "@/types"
+"use client"
 
-import { getMovieDataByParams } from "@/lib/fetcher"
-import { MovieList } from "@/components/movie/movie-list"
+import { InfiniteMovie } from "@/components/movie/infinite-movie"
 
-export default async function MoviesPage({
-  searchParams,
-}: {
-  searchParams: { genre: string }
-}) {
-  const allShows: MoviesResponse = await getMovieDataByParams(
-    1,
-    searchParams.genre
-  )
-
+export default function MoviesPage() {
   return (
     <div>
-      <MovieList movies={allShows.results} title="Movies" />
+      <InfiniteMovie />
     </div>
   )
 }

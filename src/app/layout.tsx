@@ -6,6 +6,7 @@ import { inter } from "@/assets/fonts/font"
 import NextTopLoader from "nextjs-toploader"
 
 import { siteConfig } from "@/config/site"
+import { QueryProvider } from "@/components/providers/query-provider"
 import { ThemeProvider } from "@/components/providers/theme-provider"
 import { SiteLayout } from "@/components/site/site-layout"
 
@@ -45,14 +46,16 @@ export default function RootLayout({
           speed={200}
           shadow="0 0 10px #2299DD,0 0 5px #2299DD"
         />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableColorScheme
-          disableTransitionOnChange
-        >
-          <SiteLayout>{children}</SiteLayout>
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableColorScheme
+            disableTransitionOnChange
+          >
+            <SiteLayout>{children}</SiteLayout>
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   )
