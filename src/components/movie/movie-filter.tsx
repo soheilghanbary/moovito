@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { useMovieFilterStore } from "@/store"
@@ -43,15 +45,21 @@ export function MovieFilter() {
   }
 
   return (
-    <div>
-      <Button onClick={() => setOpen(!open)}>Filter</Button>
+    <>
+      <Button
+        className="fixed bottom-10 left-1/2 z-50 -translate-x-1/2"
+        onClick={() => setOpen(!open)}
+      >
+        Filter Movie List
+      </Button>
       <Dialog open={open} onOpenChange={() => setOpen(false)}>
-        <DialogContent className="max-w-sm">
+        <DialogContent className="max-w-sm space-y-2">
           <DialogHeader>
             <DialogTitle>Advanced Search</DialogTitle>
           </DialogHeader>
           <hr className="my-2" />
           <Input
+            autoFocus={false}
             type="text"
             placeholder="Movie Name"
             defaultValue={query}
@@ -86,7 +94,7 @@ export function MovieFilter() {
               step={1}
             />
           </div>
-          <DialogFooter className="space-x-4">
+          <DialogFooter className="mt-4 grid grid-cols-2 gap-4">
             <Button variant={"outline"}>Reset</Button>
             <Button disabled={isPending} onClick={onUpdate} variant={"default"}>
               Update
@@ -94,6 +102,6 @@ export function MovieFilter() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   )
 }

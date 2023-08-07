@@ -8,7 +8,6 @@ import { useMovies } from "@/hooks/use-movie"
 
 import { InfiniteMovieLoader } from "./infinite-movie-loader"
 import { MovieCard } from "./movie-card"
-import { MovieFilter } from "./movie-filter"
 import styles from "./movie.module.scss"
 
 export const InfiniteMovie = (params: MovieSearchParams) => {
@@ -33,7 +32,6 @@ export const InfiniteMovie = (params: MovieSearchParams) => {
   if (isLoading) return <InfiniteMovieLoader />
   return (
     <section className="@container">
-      <MovieFilter />
       {data?.pages.map((p) => (
         <div key={p.results.length} className={styles["movie-list"]}>
           {p.results.map((m) => (
@@ -41,6 +39,7 @@ export const InfiniteMovie = (params: MovieSearchParams) => {
           ))}
         </div>
       ))}
+      {isFetchingNextPage && <InfiniteMovieLoader />}
       <div ref={ref} />
     </section>
   )

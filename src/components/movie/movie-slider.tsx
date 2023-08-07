@@ -1,5 +1,3 @@
-"use client"
-
 import { Movie } from "@/types"
 
 import { MovieCard } from "./movie-card"
@@ -11,34 +9,13 @@ export function MovieSlider({
   movies: Movie[]
   title: string
 }) {
-  // const [sliderRef] = useKeenSlider({
-  //   breakpoints: {
-  //     "(min-width: 320px)": {
-  //       slides: { perView: 2, spacing: 20 },
-  //     },
-  //     "(min-width: 640px)": {
-  //       slides: { perView: 4, spacing: 20 },
-  //     },
-  //     "(min-width: 768px)": {
-  //       slides: { perView: 4, spacing: 10 },
-  //     },
-  //     "(min-width: 1200px)": {
-  //       slides: { perView: 5 },
-  //     },
-  //     "(min-width: 1400px)": {
-  //       slides: { perView: 6 },
-  //     },
-  //   },
-  //   slides: { perView: 3, spacing: 10 },
-  // })
-
   return (
     <section>
       <h2 className="text-3xl font-black">{title}</h2>
       <hr className="my-4" />
-      <div className="flex snap-x gap-4 overflow-x-scroll scroll-smooth pb-4">
+      <div className="flex snap-x gap-4 overflow-x-scroll scroll-smooth pb-6">
         {movies.map((movie) => (
-          <div className="mr-2 min-w-[180px] snap-start">
+          <div className="mr-4 min-w-[180px] snap-start last:mr-0">
             <MovieCard key={movie.id} {...movie} />
           </div>
         ))}

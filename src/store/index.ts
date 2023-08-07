@@ -12,7 +12,7 @@ type MovieFilterState = {
 
 export const useMovieFilterStore = create<MovieFilterState>((set) => ({
   genre: "all",
-  query: "Game of Throns",
+  query: "",
   year: [1940, 2023],
   setYear: (year) => set({ year }),
   setQuery: (e) => set({ query: e.target.value }),
