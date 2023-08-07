@@ -1,4 +1,5 @@
 import "@/styles/globals.css"
+import "swiper/css"
 import "react-circular-progressbar/dist/styles.css"
 
 import type { Metadata } from "next"

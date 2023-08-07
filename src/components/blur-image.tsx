@@ -30,8 +30,7 @@ export const BlurImage: FC<Props> = ({ image, alt, className }) => {
         src={image}
         loading="lazy"
         className={cn(
-          "h-full w-full rounded-[inherit] object-cover shadow transition duration-300 group-hover:scale-110",
-          isReady ? "blur-0" : "blur-lg"
+          "h-full w-full rounded-[inherit] object-cover shadow transition duration-300 group-hover:scale-110"
         )}
         onLoadingComplete={onLoadCallback}
       />
