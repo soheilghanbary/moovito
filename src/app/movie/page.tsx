@@ -1,3 +1,5 @@
+"use client"
+
 import { MovieSearchParams } from "@/types"
 
 import { InfiniteMovie } from "@/components/movie/infinite-movie"

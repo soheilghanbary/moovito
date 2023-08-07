@@ -1,7 +1,9 @@
+import { useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { useMovieFilterStore } from "@/store"
 
 import { genres } from "@/config/genres"
+import { filterMovies } from "@/lib/action"
 import {
   Dialog,
   DialogContent,
@@ -25,13 +27,18 @@ import { Input } from "../ui/input"
 import { ScrollArea } from "../ui/scroll-area"
 
 export function MovieFilter() {
+  const [isPending, startTransition] = useTransition()
   const { query, genre, year, setYear, setQuery, setGenre } =
     useMovieFilterStore()
   const router = useRouter()
-  const onUpdate = () =>
-    router.push(
-      `/movie?query=${query}&genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`
-    )
+  const onUpdate = () => {
+    startTransition(() => {
+      filterMovies()
+      router.push(
+        `/movie?query=${query}&genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`
+      )
+    })
+  }
 
   return (
     <div>

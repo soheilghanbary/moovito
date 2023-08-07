@@ -12,7 +12,7 @@ export const MovieCard = ({ id, title, poster_path, vote_count }: Movie) => (
       image={`https://image.tmdb.org/t/p/w500${poster_path}`}
       alt={title}
     />
-    <h2>{title}</h2>
+    <h2 className="w-[80%]">{title}</h2>
     <p>
       <ZapIcon />
       {vote_count}
