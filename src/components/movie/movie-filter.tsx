@@ -1,4 +1,4 @@
-import { useTransition } from "react"
+import { useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { useMovieFilterStore } from "@/store"
 
@@ -10,7 +10,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import {
@@ -27,6 +26,7 @@ import { Input } from "../ui/input"
 import { ScrollArea } from "../ui/scroll-area"
 
 export function MovieFilter() {
+  const [open, setOpen] = useState(false)
   const [isPending, startTransition] = useTransition()
   const { query, genre, year, setYear, setQuery, setGenre } =
     useMovieFilterStore()
@@ -35,18 +35,17 @@ export function MovieFilter() {
     // update data on production
     startTransition(() => {
       filterMovies()
+      router.push(
+        `/movie?query=${query}&genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`
+      )
     })
-    router.push(
-      `/movie?query=${query}&genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`
-    )
+    setOpen(false)
   }
 
   return (
     <div>
-      <Dialog>
-        <DialogTrigger>
-          <Button>Filter</Button>
-        </DialogTrigger>
+      <Button onClick={() => setOpen(!open)}>Filter</Button>
+      <Dialog open={open} onOpenChange={() => setOpen(false)}>
         <DialogContent className="max-w-sm">
           <DialogHeader>
             <DialogTitle>Advanced Search</DialogTitle>
@@ -89,7 +88,7 @@ export function MovieFilter() {
           </div>
           <DialogFooter className="space-x-4">
             <Button variant={"outline"}>Reset</Button>
-            <Button onClick={onUpdate} variant={"default"}>
+            <Button disabled={isPending} onClick={onUpdate} variant={"default"}>
               Update
             </Button>
           </DialogFooter>

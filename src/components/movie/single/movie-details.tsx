@@ -1,8 +1,6 @@
 import { Movie } from "@/types"
-import { CircularProgressbar } from "react-circular-progressbar"
 
 import { getClock } from "@/lib/convertors"
-import { Button } from "@/components/ui/button"
 import { BlurImage } from "@/components/blur-image"
 import { CircleProgress } from "@/components/circle-progressbar"
 import { Icons } from "@/components/icons"
@@ -44,9 +42,6 @@ export function MovieDetails(movie: Movie) {
           </div>
           <CircleProgress rate={movie.vote_average} />
           <div className="space-x-4">
-            <Button variant={"default"}>
-              <Icons.heart className="mr-2 h-4 w-4" /> Add to Favorite
-            </Button>
             <CopyMovieURL />
           </div>
         </div>
