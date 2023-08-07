@@ -13,9 +13,9 @@ export function MovieSlider({
     <section>
       <h2 className="text-3xl font-black">{title}</h2>
       <hr className="my-4" />
-      <div className="flex snap-x gap-4 overflow-x-scroll scroll-smooth pb-6">
+      <div className="flex snap-x overflow-x-scroll pb-6">
         {movies.map((movie) => (
-          <div className="mr-4 min-w-[180px] snap-start last:mr-0">
+          <div className="mr-6 min-w-[220px] snap-start last:mr-0">
             <MovieCard key={movie.id} {...movie} />
           </div>
         ))}

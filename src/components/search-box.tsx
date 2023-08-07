@@ -22,14 +22,9 @@ export function SearchBox() {
     <form
       ref={formRef}
       onSubmit={onSearch}
-      className="flex max-w-sm items-center space-x-4"
+      className="flex max-w-sm flex-1 items-center"
     >
-      <Input
-        ref={queryRef}
-        type="text"
-        placeholder="Search Movie Name"
-        className="flex-1"
-      />
+      <Input ref={queryRef} type="text" placeholder="Search Movie" />
     </form>
   )
 }

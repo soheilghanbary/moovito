@@ -77,12 +77,14 @@ import {
   VolumeX,
   Wallet,
   X,
+  Zap,
   type LucideProps,
 } from "lucide-react"
 
 export type Icon = LucideIcon
 
 export const Icons = {
+  zap: Zap,
   sun: SunMedium,
   moon: Moon,
   clock: Clock,

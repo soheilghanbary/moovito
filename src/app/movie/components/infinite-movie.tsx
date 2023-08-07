@@ -5,10 +5,9 @@ import { MovieSearchParams } from "@/types"
 import { useInView } from "react-intersection-observer"
 
 import { useMovies } from "@/hooks/use-movie"
+import { MovieCard } from "@/app/home/components/movie-card"
 
-import { InfiniteMovieLoader } from "./infinite-movie-loader"
-import { MovieCard } from "./movie-card"
-import styles from "./movie.module.scss"
+import { InfiniteMovieLoader } from "./movie-loader"
 
 export const InfiniteMovie = (params: MovieSearchParams) => {
   const {
@@ -33,7 +32,13 @@ export const InfiniteMovie = (params: MovieSearchParams) => {
   return (
     <section className="@container">
       {data?.pages.map((p) => (
-        <div key={p.results.length} className={styles["movie-list"]}>
+        <div
+          key={p.results.length}
+          style={{ contentVisibility: "auto" }}
+          className={
+            "mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5"
+          }
+        >
           {p.results.map((m) => (
             <MovieCard key={m.id} {...m} />
           ))}

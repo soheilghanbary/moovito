@@ -35,7 +35,7 @@ export const CircleProgress = ({ rate }: { rate: number }) => {
       <Tooltip>
         <TooltipTrigger>
           <CircularProgressbar
-            className="h-12 w-12 duration-150 hover:scale-125"
+            className="h-10 w-10 duration-150 hover:scale-125"
             value={progress}
             text={`${progress}%`}
             styles={buildStyles({

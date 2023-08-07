@@ -34,7 +34,7 @@ const SiteHeader = () => (
       <div className="hidden flex-1 md:block">
         <SiteNav />
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2">
         <SearchBox />
         <ThemeToggle />
       </div>

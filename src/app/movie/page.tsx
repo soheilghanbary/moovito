@@ -1,7 +1,7 @@
 import { MovieSearchParams } from "@/types"
 
-import { InfiniteMovie } from "@/components/movie/infinite-movie"
 import { MovieFilter } from "@/components/movie/movie-filter"
+import { InfiniteMovie } from "@/app/movie/components/infinite-movie"
 
 export default function MoviesPage({
   searchParams,

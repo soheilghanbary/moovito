@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Moovito",
-  description: "moovito: your one-stop destination for all things movies.",
+  description: "Your Ultimate Movie Search App",
   links: {
     twitter: "https://twitter.com/soli_ghanbary",
     github: "https://github.com/soheilghanbary",

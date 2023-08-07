@@ -21,11 +21,10 @@ export function CopyMovieURL() {
   }
 
   return (
-    <>
-      <Button onClick={onCopyURL} variant={"outline"}>
+    <div>
+      <Button onClick={onCopyURL}>
         <Icons.copy className="mr-2 h-4 w-4" /> Copy URL
       </Button>
-      <Toaster richColors />
-    </>
+    </div>
   )
 }
