@@ -1,3 +1,5 @@
+import { MovieSearchParams } from "@/types"
+
 const base_url = "https://api.themoviedb.org/3"
 
 // get all people movies credits
@@ -18,10 +20,17 @@ export async function getCastById(castId: number) {
 
 export async function getMovieDataByPage({
   pageParam = 1,
+  query = "",
   genre = "",
   min_year = "",
   max_year = "",
-}) {
+}: MovieSearchParams & { pageParam: number }) {
+  if (query.length) {
+    const res = await fetch(
+      `${base_url}/search/movie?api_key=${process.env.MOVIE_API_KEY}&page=${pageParam}&query=${query}&with_genres=${genre}&primary_release_date.gte=${min_year}&primary_release_date.lte=${max_year}`
+    )
+    return res.json()
+  }
   const res = await fetch(
     `${base_url}/discover/movie?api_key=${process.env.MOVIE_API_KEY}&page=${pageParam}&with_genres=${genre}&primary_release_date.gte=${min_year}&primary_release_date.lte=${max_year}`
   )

@@ -133,3 +133,10 @@ interface PageProps {
     id: number
   }
 }
+
+interface MovieSearchParams {
+  genre: string
+  min_year: string
+  max_year: string
+  query: string
+}

@@ -1,4 +1,4 @@
-import { Movie } from "@/types"
+import { Movie, MovieSearchParams } from "@/types"
 import { useInfiniteQuery } from "@tanstack/react-query"
 
 import { getMovieDataByPage } from "@/lib/fetcher"
@@ -7,11 +7,16 @@ interface InfiniteMovieProps {
   results: Movie[]
 }
 
-export function useMovies(genre: string, min_year: string, max_year: string) {
+export function useMovies({
+  query,
+  genre,
+  min_year,
+  max_year,
+}: MovieSearchParams) {
   return useInfiniteQuery<InfiniteMovieProps>({
-    queryKey: ["movies", genre, min_year, max_year],
+    queryKey: ["movies", genre, min_year, max_year, query],
     queryFn: ({ pageParam }) =>
-      getMovieDataByPage({ pageParam, genre, min_year, max_year }),
+      getMovieDataByPage({ pageParam, query, genre, min_year, max_year }),
     getNextPageParam: (lastPage, pages) => {
       return pages.length + 1
     },

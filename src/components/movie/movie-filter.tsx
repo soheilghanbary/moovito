@@ -1,12 +1,10 @@
-import { useState } from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useMovieFilterStore } from "@/store"
 
 import { genres } from "@/config/genres"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -21,21 +19,19 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
-import { SearchBox } from "@/components/search-box"
 
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { ScrollArea } from "../ui/scroll-area"
 
 export function MovieFilter() {
-  const { query, genre, year, setYear, rate, setRate, setQuery, setGenre } =
+  const { query, genre, year, setYear, setQuery, setGenre } =
     useMovieFilterStore()
-  const pathname = usePathname()
-  const params = useSearchParams()
   const router = useRouter()
   const onUpdate = () =>
-    router.push(`/movie?genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`)
-  // &primary_release_date.gte=1990-01-01&primary_release_date.lte=1990-12-31
+    router.push(
+      `/movie?query=${query}&genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`
+    )
 
   return (
     <div>
@@ -81,21 +77,6 @@ export function MovieFilter() {
               max={2023}
               min={1940}
               step={1}
-            />
-          </div>
-          <div>
-            <div className="mb-4 flex items-center justify-between text-muted-foreground">
-              <Label>Rate</Label>
-              <Label>
-                {rate[0]} - {rate[1]}
-              </Label>
-            </div>
-            <Slider
-              defaultValue={rate}
-              onValueChange={setRate}
-              max={10.0}
-              min={1.0}
-              step={0.1}
             />
           </div>
           <DialogFooter className="space-x-4">

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import { MovieSearchParams } from "@/types"
 import { useInView } from "react-intersection-observer"
 
 import { useMovies } from "@/hooks/use-movie"
@@ -10,7 +11,7 @@ import { MovieCard } from "./movie-card"
 import { MovieFilter } from "./movie-filter"
 import styles from "./movie.module.scss"
 
-export const InfiniteMovie = ({ genre = "", min_year = "", max_year = "" }) => {
+export const InfiniteMovie = (params: MovieSearchParams) => {
   const {
     data,
     isSuccess,
@@ -18,7 +19,7 @@ export const InfiniteMovie = ({ genre = "", min_year = "", max_year = "" }) => {
     hasNextPage,
     isFetchingNextPage,
     fetchNextPage,
-  } = useMovies(genre, min_year, max_year)
+  } = useMovies({ ...params })
   const { ref, inView } = useInView({
     rootMargin: "200px",
   })
