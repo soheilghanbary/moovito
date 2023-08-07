@@ -32,12 +32,13 @@ export function MovieFilter() {
     useMovieFilterStore()
   const router = useRouter()
   const onUpdate = () => {
+    // update data on production
     startTransition(() => {
       filterMovies()
-      router.push(
-        `/movie?query=${query}&genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`
-      )
     })
+    router.push(
+      `/movie?query=${query}&genre=${genre}&min_year=${year[0]}&max_year=${year[1]}`
+    )
   }
 
   return (
