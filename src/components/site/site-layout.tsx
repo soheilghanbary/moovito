@@ -27,7 +27,7 @@ const Main = ({ children }: PropsWithChildren) => (
 )
 
 const SiteHeader = () => (
-  <header className="sticky top-0 z-50 border-b bg-background">
+  <header className="border-b">
     <nav className="container mx-auto flex items-center justify-between py-4">
       <MobileMenu />
       <Logo />

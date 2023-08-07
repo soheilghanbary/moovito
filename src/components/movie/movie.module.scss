@@ -1,4 +1,5 @@
 .movie-list {
+  content-visibility: auto;
   @apply 
     grid gap-4 mt-4
     xl:grid-cols-6

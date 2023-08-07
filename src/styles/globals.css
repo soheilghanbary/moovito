@@ -74,8 +74,6 @@
   * {
     @apply border-border;
     -webkit-tap-highlight-color: transparent;
-    content-visibility: auto;
-    contain-intrinsic-size: auto 1px auto 500px;
   }
   body {
     @apply bg-background text-foreground;
