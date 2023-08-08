@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Movie, PageProps } from "@/types"
+import { Balancer } from "react-wrap-balancer"
 
 import { getClock } from "@/lib/convertors"
 import { getAllMovieDataById } from "@/lib/fetcher"
@@ -95,11 +96,11 @@ export default async function MoviePage({ params }: PageProps) {
         <CardHeader>
           <CardTitle>Cast</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-4 gap-4">
+        <CardContent className="grid md:grid-cols-4 grid-cols-2 gap-4">
           {casts?.map((c) => (
             <Link key={c.id} href={`/person/${c.id}`} className="space-y-2">
               <BlurImage
-                className="h-56 w-full rounded-xl"
+                className="md:h-56 h-60 w-full rounded-xl"
                 alt={c.name}
                 image={`${baseImageURL}${c.profile_path}`}
               />

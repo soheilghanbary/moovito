@@ -1,6 +1,6 @@
 import { Movie } from "@/types"
 
-import { MovieCard } from "./movie-card"
+import { MovieCard } from "@/app/home/components/movie-card"
 
 export function MovieList({
   movies,

@@ -10,12 +10,12 @@ export function MovieCard(movie: Movie) {
   return (
     <Link
       href={`/movie/${movie.id}`}
-      className="relative h-80 w-full space-y-2 rounded-xl md:h-96"
+      className="relative h-80 w-full space-y-2 rounded-xl md:h-[400px]"
     >
       <BlurImage
-        className="h-[inherit] w-[inherit] rounded-[inherit]"
         alt={movie.title}
         image={`${baseImageURL}${movie.poster_path}`}
+        className="h-[inherit] w-[inherit] rounded-[inherit]"
       />
       <div className="absolute bottom-0 left-0 flex h-full w-full items-end rounded-[inherit] bg-gradient-to-t from-black/80 from-5% p-4">
         <div className="space-y-2">
